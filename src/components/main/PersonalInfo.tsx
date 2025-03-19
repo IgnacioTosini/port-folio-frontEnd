@@ -6,7 +6,7 @@ import { useGitHubData } from "../../hooks/github/useGitHubData";
 
 export default function PersonalInfo() {
     const { userData } = useGitHubData();
-    const icons = [{ icon: 'github', url: 'https://github.com/IgnacioTosini' }, { icon: 'linkedin', url: 'www.linkedin.com/in/ignacio-tosini' }, { icon: 'cv', url: '/cv.pdf' }];
+    const icons = [{ icon: 'github', url: 'https://github.com/IgnacioTosini' }, { icon: 'linkedin', url: 'https://www.linkedin.com/in/ignacio-tosini/' }, { icon: 'cv', url: '/cv.pdf' }];
 
     return (
         <section className="personal-info-container">

@@ -9,7 +9,7 @@ export default function Contact() {
             <PersonalText title="Contacto" text="Si quieres contactarme." />
             <section className="contact-container">
                 <CustomCard title="Información de contacto" subtitle="Puedes contactarme a través de los siguientes medios." mail buttons={[
-                    { type: 'linkein', url: 'www.linkedin.com/in/ignacio-tosini' }
+                    { type: 'linkein', url: 'https://www.linkedin.com/in/ignacio-tosini/' }
                 ]} />
                 <Form />
             </section>
