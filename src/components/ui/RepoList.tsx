@@ -1,9 +1,21 @@
 import CustomCard from "./CustomCard";
 import '../../styles/components/ui/_repoList.scss';
 import { useGitHubData } from "../../hooks/github/useGitHubData";
+import { toast } from "react-toastify";
 
 const RepoList = () => {
-    const { userData, loadMoreRepos, loading } = useGitHubData();
+    const { userData, loadMoreRepos, loading, hasMoreRepos } = useGitHubData();
+
+    const handleLoadMoreRepos = async () => {
+        await loadMoreRepos();
+
+        toast.success('Más repositorios cargados');
+
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
     return (
         <div>
@@ -22,8 +34,8 @@ const RepoList = () => {
                     />
                 ))}
             </section>
-            <button onClick={loadMoreRepos} disabled={loading}>
-                {loading ? 'Cargando...' : 'Cargar más'}
+            <button onClick={handleLoadMoreRepos} disabled={loading || !hasMoreRepos}>
+                {loading ? 'Cargando...' : hasMoreRepos ? 'Cargar más' : 'No hay más repositorios'}
             </button>
         </div>
     );

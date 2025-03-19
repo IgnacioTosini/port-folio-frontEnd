@@ -13,10 +13,17 @@ export const useGitHubData = () => {
     const [userData, setUserData] = useState<UserData>({ name: '', avatar_url: '', repos: [], starredRepos: [] });
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [hasMoreRepos, setHasMoreRepos] = useState(true);
 
     const loadMoreRepos = async () => {
         setLoading(true);
         const newStarredRepos = await fetchStarredRepos(page, 6);
+
+        if(newStarredRepos.length === 0) {
+            setHasMoreRepos(false)
+            setLoading(false)
+            return
+        }
 
         const newStarredReposWithLanguages = await Promise.all(newStarredRepos.map(async (repo: GitHubRepo) => {
             const languages = await fetchRepoLanguages(repo.languages_url);
@@ -59,5 +66,5 @@ export const useGitHubData = () => {
         fetchData();
     }, []);
 
-    return { userData, loadMoreRepos, loading };
+    return { userData, loadMoreRepos, loading, hasMoreRepos };
 };
