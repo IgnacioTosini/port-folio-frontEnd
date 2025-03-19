@@ -1,0 +1,17 @@
+@use './components/header/header';
+@use './components/header/userImage';
+@use './components/header/navbar';
+
+@use './components/main/main';
+@use './components/main/personalInfo';
+@use './components/main/contact';
+
+@use './components/ui/personalText';
+@use './components/ui/customIcon';
+@use './components/ui/iconList';
+@use './components/ui/customCard';
+@use './components/ui/form';
+@use './components/ui/repoList';
+@use './components/ui/languageBadge';
+
+@use './components/footer/footer';

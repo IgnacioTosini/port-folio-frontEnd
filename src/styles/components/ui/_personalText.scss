@@ -1,0 +1,44 @@
+@use '../../variables.scss' as *;
+
+.personal-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: $margin-base;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: $margin-base;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    .subTitle {
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: $margin-base;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    .text {
+        font-size: $font-size-base;
+        font-weight: 400;
+        margin-bottom: $margin-base;
+        text-align: center;
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+}

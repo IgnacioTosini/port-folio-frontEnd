@@ -1,0 +1,29 @@
+@use '../../variables.scss' as *;
+
+.custom-icon {
+    display: flex;
+    font-size: 2rem;
+    margin: 0.5rem;
+    color: $color-secondary-dark;
+    border: solid 1px #333;
+    border-radius: 5%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-items: center;
+
+    &:hover {
+        color: $color-primary-dark;
+        background-color: $color-secondary-dark;
+    }
+
+    body.light & {
+        color: $color-secondary-light;
+        border: solid 1px $color-border-light;
+
+        &:hover {
+            color: $color-primary-light;
+            background-color: $color-secondary-light;
+        }
+    }
+}

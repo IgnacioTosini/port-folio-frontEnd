@@ -1,0 +1,122 @@
+@use '../../variables' as *;
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid $color-border-light;
+    border-radius: $border-radius;
+    background-color: $color-primary-dark;
+    box-shadow: $box-shadow-hover;
+
+    h2 {
+        font-size: $font-size-large;
+        margin-bottom: $margin-base;
+    }
+
+    p {
+        font-size: $font-size-base;
+        margin-bottom: $margin-base;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        label {
+            font-size: $font-size-base;
+            margin-bottom: $margin-base;
+        }
+
+        input,
+        textarea {
+            font-size: $font-size-base;
+            padding: $border-radius;
+            margin-bottom: $margin-base;
+            border: 1px solid $color-border-dark;
+            border-radius: $border-radius;
+            background-color: $color-primary-dark;
+            color: $color-secondary-dark;
+            width: 100%;
+            max-width: 20rem;
+            min-width: fit-content;
+            max-height: 15rem;
+            resize: vertical;
+        }
+
+        textarea {
+            min-height: 5rem;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: $border-radius;
+            border: none;
+            border-radius: $border-radius;
+            background-color: $color-secondary-dark;
+            color: $color-primary-dark;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: $color-hover-dark;
+                color: $color-secondary-dark;
+                border: 1px solid $color-hover-light;
+            }
+
+            &:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+        }
+
+        .success {
+            color: green;
+            margin-top: $margin-base;
+        }
+
+        .error {
+            color: red;
+            margin-top: $margin-base;
+        }
+    }
+
+    body.light & {
+        background-color: $color-primary-light;
+        border: 1px solid $color-border-light;
+
+        h2 {
+            color: $color-secondary-light;
+        }
+
+        p {
+            color: $color-secondary-light;
+        }
+
+        label {
+            color: $color-secondary-light;
+        }
+
+        input,
+        textarea {
+            color: $color-secondary-light;
+            background-color: $color-primary-light;
+            border: 1px solid $color-border-dark;
+        }
+
+        button {
+            background-color: $color-secondary-light;
+            color: $color-primary-light;
+
+            &:hover {
+                background-color: $color-hover-light;
+                color: $color-secondary-light;
+                border: 1px solid $color-hover-dark;
+            }
+        }
+    }
+}

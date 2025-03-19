@@ -1,0 +1,43 @@
+@use '../../variables.scss' as *;
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba($color-primary-dark, 0.9);
+    padding: $padding-base;
+    box-shadow: $box-shadow;
+
+    body.light & {
+        background-color: rgba($color-primary-light, 0.9);
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-right: $margin-base;
+            position: relative;
+            cursor: pointer;
+
+            a {
+                text-decoration: none;
+                color: $color-secondary-dark;
+
+                body.light & {
+                    color: $color-primary-dark;
+                }
+            }
+
+            svg {
+                font-size: $font-size-large;
+            }
+        }
+    }
+}

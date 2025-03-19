@@ -1,0 +1,9 @@
+@use '../../variables.scss' as *;
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+}

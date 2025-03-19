@@ -1,0 +1,40 @@
+@use '../../variables' as *;
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .repo-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        font-size: $font-size-small;
+        font-weight: bold;
+        color: $color-primary-light;
+        border: solid 1px $color-border-light;
+        background-color: $color-secondary-light;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: $color-hover-light;
+            color: $color-primary-dark;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}

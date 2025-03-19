@@ -1,0 +1,13 @@
+@use '../../variables.scss' as *;
+
+.user-image {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: clamp(100px, 5vw, 200px);
+        height: clamp(100px, 5vw, 200px);
+        border-radius: 50%;
+        margin-right: $margin-base;
+    }
+}

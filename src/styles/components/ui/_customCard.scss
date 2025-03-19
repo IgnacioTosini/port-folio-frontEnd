@@ -1,0 +1,153 @@
+@use '../../variables' as *;
+
+.custom-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: $padding-base;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    border: solid 1px $color-border-dark;
+    background-color: $color-primary-dark;
+    width: $width-clamp;
+    height: $height-clamp;
+    min-height: 10rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: $box-shadow-hover;
+        color: $color-primary-dark;
+        border-color: $color-primary-dark;
+        background-color: $color-hover-dark;
+
+        .button-card {
+            background-color: $color-primary-dark;
+            color: $color-primary-dark;
+
+            &:hover {
+                background-color: $color-primary-dark;
+                color: $color-primary-dark;
+            }
+        }
+    }
+
+    .title-card, .mail-container {
+        color: $color-secondary-dark;
+    }
+
+    .title-card {
+        font-size: clamp(1rem, 5%, 2rem);
+        font-weight: $font-weight-bold;
+        margin-bottom: $margin-base;
+    }
+
+    .subTitle-card {
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+        margin-bottom: $margin-base;
+        color: $color-border-light;
+    }
+
+    .languages {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .mail-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: $margin-base;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: $margin-base;
+        gap: 1rem;
+
+        .button-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-size: $font-size-small;
+            font-weight: $font-weight-bold;
+            color: $color-secondary-dark;
+            border: solid 1px $color-border-dark;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: $color-primary-dark;
+            border-color: $color-secondary-dark;
+
+            &:hover {
+                background-color: $color-secondary-dark;
+                color: $color-primary-dark;
+            }
+
+            &.disabled {
+                cursor: not-allowed;
+                opacity: 0.5;
+                pointer-events: none;
+                background-color: #e0e0e0;
+                color: #a0a0a0;
+                border-color: #a0a0a0;
+            }
+
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    body.light & {
+        background-color: $color-primary-light;
+        border-color: $color-border-light;
+
+        .title-card, .mail-container {
+            color: $color-secondary-light;
+        }
+
+        .subTitle-card {
+            color: $color-border-dark;
+        }
+
+        .button-card {
+            background-color: $color-primary-light;
+            color: $color-secondary-light;
+            border-color: $color-border-light;
+
+            &:hover {
+                background-color: $color-hover-dark;
+                color: $color-primary-light;
+            }
+        }
+
+        &:hover {
+            background-color: $color-hover-light;
+            color: $color-primary-light;
+            border-color: $color-border-light;
+        }
+    }
+}
+
+.custom-card-projects {
+    min-height: 13rem;
+}

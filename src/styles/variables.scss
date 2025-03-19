@@ -1,0 +1,32 @@
+// Colores
+//Dark Mode
+$color-primary-dark: #333;
+$color-secondary-dark: #fff;
+$color-border-dark: #4d4d4d;
+$color-hover-dark: #505050;
+
+//Light Mode
+$color-primary-light: #fff;
+$color-secondary-light: #333;
+$color-border-light: #b3b3b3;
+$color-hover-light: #f0f0f0;
+
+// Otros
+$color-error: red;
+$color-success: green;
+
+// Tipografía
+$font-size-base: 1rem;
+$font-size-large: 1.5rem;
+$font-size-small: 0.8rem;
+$font-weight-bold: bold;
+$font-weight-normal: normal;
+
+// Tamaños
+$width-clamp: clamp(10rem, 95%, 30rem);
+$height-clamp: clamp(10rem, 100%, 25rem);
+$border-radius: 0.5rem;
+$padding-base: 1rem;
+$margin-base: 1rem;
+$box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+$box-shadow-hover: 0 0 10px rgba(0, 0, 0, 0.3);
