@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
+import { FormData } from "../../types";
 import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/components/ui/_form.scss';
-import { FormData } from "../../types";
 
 export default function Form() {
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
@@ -39,7 +39,7 @@ export default function Form() {
     };
 
     return (
-        <div className="contact-form">
+        <div className="contact-form" role="form" aria-label="Formulario de contacto">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="name">Nombre</label>
                 <input
@@ -47,7 +47,7 @@ export default function Form() {
                     id="name"
                     {...register('name', { required: 'El nombre es requerido' })}
                 />
-                {errors.name && <span className="error">{errors.name.message}</span>}
+                {errors.name && <span className="error" aria-live="polite">{errors.name.message}</span>}
 
                 <label htmlFor="email">Email</label>
                 <input
@@ -61,7 +61,7 @@ export default function Form() {
                         },
                     })}
                 />
-                {errors.email && <span className="error">{errors.email.message}</span>}
+                {errors.email && <span className="error" aria-live="polite">{errors.email.message}</span>}
 
                 <label htmlFor="message">Mensaje</label>
                 <textarea
@@ -71,7 +71,7 @@ export default function Form() {
                         minLength: { value: 10, message: 'El mensaje es muy corto' },
                     })}
                 />
-                {errors.message && <span className="error">{errors.message.message}</span>}
+                {errors.message && <span className="error" aria-live="polite">{errors.message.message}</span>}
 
                 <button type="submit" disabled={loading}>
                     {loading ? 'Enviando...' : 'Enviar mensaje'}

@@ -1,3 +1,5 @@
+import { memo, useRef } from 'react';
+import { useGsapFadeInUp } from '../../hooks/gsap/useGsapFadeInUp';
 import '../../styles/components/ui/_languageBadge.scss';
 
 type LanguageBadgeProps = {
@@ -13,12 +15,14 @@ const languageColors: { [key: string]: string } = {
     SCSS: '#c6538c',
 };
 
-export default function LanguageBadge({ language }: LanguageBadgeProps) {
+export const LanguageBadge = memo(function LanguageBadge({ language }: LanguageBadgeProps) {
+    const ref = useRef<HTMLLIElement>(null);
+    useGsapFadeInUp(ref);
     const color = languageColors[language] || '#333';
 
     return (
-        <li className="language-badge" style={{ '--hover-color': color } as React.CSSProperties}>
+        <li ref={ref} className="language-badge" style={{ '--hover-color': color } as React.CSSProperties}>
             <p>{language}</p>
         </li>
     );
-}
+});

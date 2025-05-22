@@ -1,4 +1,4 @@
-import CustomCard from "./CustomCard";
+import { CustomCard } from "./CustomCard";
 import '../../styles/components/ui/_repoList.scss';
 import { useGitHubData } from "../../hooks/github/useGitHubData";
 import { toast } from "react-toastify";
@@ -28,15 +28,25 @@ const RepoList = () => {
                         languages={repo.languages}
                         buttons={[
                             { type: 'git', url: repo.html_url },
-                            { type: 'demo', url: repo.homepage }
+                            ...(repo.homepage ? [{ type: 'demo', url: repo.homepage }] : [])
                         ]}
                         mail={false}
                     />
                 ))}
             </section>
-            <button onClick={handleLoadMoreRepos} disabled={loading || !hasMoreRepos}>
-                {loading ? 'Cargando...' : hasMoreRepos ? 'Cargar más' : 'No hay más repositorios'}
-            </button>
+            <div className="repo-list__loadmore-container">
+                {hasMoreRepos ? (
+                    <button onClick={handleLoadMoreRepos} disabled={loading} className="repo-list__loadmore-btn">
+                        {loading ? (
+                            <span className="repo-list__spinner" aria-label="Cargando" />
+                        ) : (
+                            'Cargar más'
+                        )}
+                    </button>
+                ) : (
+                    <div className="repo-list__nomore">🎉 ¡Has visto todos los repositorios destacados!</div>
+                )}
+            </div>
         </div>
     );
 };

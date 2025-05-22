@@ -1,7 +1,7 @@
 import Form from "../ui/Form";
-import CustomCard from "../ui/CustomCard";
-import '../../styles/components/main/_contact.scss';
+import { CustomCard } from "../ui/CustomCard";
 import PersonalText from "../ui/PersonalText";
+import '../../styles/components/main/_contact.scss';
 
 export default function Contact() {
     return (

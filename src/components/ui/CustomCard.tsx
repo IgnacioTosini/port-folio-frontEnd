@@ -1,6 +1,8 @@
+import { useRef, memo } from 'react';
 import { JSX } from 'react';
+import { useGsapFadeInUp } from '../../hooks/gsap/useGsapFadeInUp';
 import { FaGithub, FaExternalLinkAlt, FaLinkedin } from 'react-icons/fa';
-import LanguageBadge from './LanguageBadge';
+import { LanguageBadge } from './LanguageBadge';
 import { CiMail } from 'react-icons/ci';
 import '../../styles/components/ui/_customCard.scss';
 
@@ -18,9 +20,12 @@ const buttonMap: { [key: string]: { icon: JSX.Element, label: string } } = {
     demo: { icon: <FaExternalLinkAlt />, label: 'Demo' }
 };
 
-export default function CustomCard({ title, subtitle, languages, buttons, mail }: CustomCardProps) {
+export const CustomCard = memo(function CustomCard({ title, subtitle, languages, buttons, mail }: CustomCardProps) {
+    const cardRef = useRef<HTMLElement>(null);
+    useGsapFadeInUp(cardRef);
+
     return (
-        <section className={languages ? 'custom-card custom-card-projects' : 'custom-card'}>
+        <section ref={cardRef} className={languages ? 'custom-card custom-card-projects' : 'custom-card'}>
             <h2 className="title-card">{title.toUpperCase()}</h2>
             {subtitle && <h3 className="subTitle-card">{subtitle}</h3>}
             {languages && languages.length > 0 && (
@@ -55,4 +60,4 @@ export default function CustomCard({ title, subtitle, languages, buttons, mail }
             )}
         </section>
     )
-}
+});

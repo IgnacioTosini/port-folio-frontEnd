@@ -16,25 +16,80 @@ div {
         width: 100%;
     }
 
-    button {
-        padding: 0.5rem 1rem;
-        border-radius: 1rem;
-        font-size: $font-size-small;
+
+
+    .repo-list__loadmore-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .repo-list__loadmore-btn {
+        padding: 0.7rem 2rem;
+        border-radius: 1.5rem;
+        font-size: $font-size-base;
         font-weight: bold;
         color: $color-primary-light;
-        border: solid 1px $color-border-light;
+        border: solid 2px $color-border-light;
         background-color: $color-secondary-light;
         cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
         transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: $color-hover-light;
             color: $color-primary-dark;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
         }
 
         &:disabled {
             cursor: not-allowed;
             opacity: 0.5;
+        }
+    }
+
+    .repo-list__spinner {
+        width: 1.3em;
+        height: 1.3em;
+        border: 3px solid $color-border-light;
+        border-top: 3px solid $color-primary-dark;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        display: inline-block;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .repo-list__nomore {
+        color: $color-primary-light;
+        font-size: $font-size-base;
+        margin: 2rem 0 1rem 0;
+        text-align: center;
+        opacity: 0.85;
+        letter-spacing: 0.5px;
+    }
+
+    body.light & {
+        .repo-list__spinner {
+            border: 3px solid $color-border-dark;
+            border-top: 3px solid $color-primary-light;
+        }
+
+        .repo-list__nomore {
+            color: $color-primary-dark;
         }
     }
 }
